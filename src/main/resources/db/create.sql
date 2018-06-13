@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS foodtypes (
 );
 
 
-
 CREATE TABLE IF NOT EXISTS reviews (
  id int PRIMARY KEY auto_increment,
  writtenby VARCHAR,

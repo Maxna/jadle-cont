@@ -13,10 +13,10 @@ public interface RestaurantDao {
     //read
     List<Restaurant> getAll();
     Restaurant findById(int id);
-    List<Foodtype> getAllFoodtypesByRestaurant(int restaurantId);
+    List<Foodtype> getAllFoodtypesForARestaurant(int restaurantId);
 
     //update
-    void update(String name, String address, String zipcode, String phone, String website, String email); //replace with HashMap?
+//    void update(String name, String address, String zipcode, String phone, String website, String email); //replace with HashMap?
 
     //delete
     void deleteById(int id);

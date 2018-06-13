@@ -60,7 +60,7 @@ public class Sql2oRestaurantDao implements RestaurantDao {
     }
 
     @Override
-    public List<Foodtype> getAllFoodtypesByRestaurant(int restaurantId) {
+    public List<Foodtype> getAllFoodtypesForARestaurant(int restaurantId) {
         ArrayList<Foodtype> foodtypes = new ArrayList<>();
         String joinQuery = "SELECT foodtypeid FROM restaurants_foodtypes WHERE restaurantid = :restaurantId";
         try (Connection con = sql2o.open()) {
@@ -83,24 +83,24 @@ public class Sql2oRestaurantDao implements RestaurantDao {
 
 
 
-    @Override
-    public void update(int id, String name, String address, String zipcode, String phone, String website, String email) {
-        String sql = "UPDATE restaurants SET (name, address, zipcode, phone, website, email) = (:name, :address, :zipcode, :phone, :website, :email) WHERE id=:id";
-        try (Connection con = sql2o.open()) {
-            con.createQuery(sql)
-                    .addParameter("name", name)
-                    .addParameter("address", address)
-                    .addParameter("zipcode", zipcode)
-                    .addParameter("phone", phone)
-                    .addParameter("website", website)
-                    .addParameter("email", email)
-                    .addParameter("id", id)
-                    .executeUpdate();
-        } catch (Sql2oException ex) {
-            System.out.println(ex);
-        }
-
-    }
+//    @Override
+//    public void update(int id, String name, String address, String zipcode, String phone, String website, String email) {
+//        String sql = "UPDATE restaurants SET (name, address, zipcode, phone, website, email) = (:name, :address, :zipcode, :phone, :website, :email) WHERE id=:id";
+//        try (Connection con = sql2o.open()) {
+//            con.createQuery(sql)
+//                    .addParameter("name", name)
+//                    .addParameter("address", address)
+//                    .addParameter("zipcode", zipcode)
+//                    .addParameter("phone", phone)
+//                    .addParameter("website", website)
+//                    .addParameter("email", email)
+//                    .addParameter("id", id)
+//                    .executeUpdate();
+//        } catch (Sql2oException ex) {
+//            System.out.println(ex);
+//        }
+//
+//    }
 
     @Override
     public void deleteById(int id) {
